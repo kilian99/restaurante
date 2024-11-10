@@ -1,0 +1,100 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% block section %}
+
+    <div>
+        <h2>Buscar por pais</h2>
+        <form action="/verpersonaje" method="post">
+            <label for="id_pais">Nombre Pais:</label>
+            <select name="id_pais">
+                {% for pais in paises %}
+                <option value="{{pais.id}}">{{pais.nombre}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Ver" />
+        </form>
+    </div>
+
+    <br>
+
+    <table style="width: 60%; border: 1px solid black; border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px solid; padding: 10px;">ID</th>
+            <th style="border: 1px solid; padding: 10px;">Nombre</th>
+            <th style="border: 1px solid; padding: 10px;">Profesión</th>
+            <th style="border: 1px solid; padding: 10px;">Id_pais</th>
+        </tr>
+
+        {% for personaje in personajes %}
+        <tr>
+            <th style="border: 1px solid; padding: 10px;">{{ personaje.id }}</td>
+            <th style="border: 1px solid; padding: 10px;">{{ personaje.nombre }}</td>
+            <th style="border: 1px solid; padding: 10px;">{{ personaje.profesion }}</td>
+            <th style="border: 1px solid; padding: 10px;">{{ personaje.id_pais }}</td>
+            <th style="border: 1px solid; padding: 10px;">
+                <form action="/delpersonaje" method="post">
+                    <input type="hidden" name="id" value="{{ personaje.id }}" />
+                    <input type="submit" value="Borrar" />
+                </form>
+            </th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <form action="/addpersonaje" method="post">
+        <label for="id">Id</label>
+        <input type="text" name="id" value="" />
+        <label for="nombre">Nombre</label>
+        <input type="text" name="id" value="" />
+        <label for="profesion">Profesion</label>
+        <input type="text" name="id" value="" />
+        <label for="id_pais">Id_pais</label>
+        <input type="text" name="id" value="" />
+        <input type="submit" value="Añadir" />
+    </form>
+
+    <br>
+
+    <form action="/updatepersonaje" method="post">
+        <label for="personajes">Personajes:</label>
+        <select name="idpais">
+            {% for personaje in personajes %}
+            <option value="{{personaje.id}}">{{personaje.nombre}}</option>
+            {% endfor %}
+        </select>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="" />
+        <label for="profesion">Profesion</label>
+        <input type="text" name="id" value="" />
+        <label for="id_pais">Id_pais</label>
+        <input type="text" name="id" value="" />
+        <input type="submit" value="Actualizar" />
+    </form>
+    <br>
+    {% endblock %}
+
+    {% block footer %}
+    <p>ADMIN</p>
+    <p>Email: admin@gmail.com</p>
+    <p>
+        Sígueme en:
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Facebook</a>
+    </p>
+    {% endblock %}
+
+</body>
+
+</html>

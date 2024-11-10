@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+    <nav>
+        <div>
+            <ul>
+                <li><a href="{{ url_for('ruta_irlanda.index') }}">Index</a></li>
+                <li><a href="{{ url_for('ruta_pais.verpaises') }}">Admin Paises</a></li>
+                <li><a href="{{ url_for('ruta_ciudad.verciudad') }}">Admin Ciudades</a></li>
+                <li><a href="{{ url_for('ruta_personaje.verpersonaje') }}">Admin Personajes</a></li>
+                {% block croacia %}
+                <li><a href="{{ url_for('ruta_croacia.vercroacia') }}">Croacia</a></li>
+                {% endblock %}
+                {% block españa %}
+                <li><a href="{{ url_for('ruta_espana.verespana') }}">España</a></li>
+                {% endblock %}
+                {% block irlanda %}
+                <li><a href="{{ url_for('ruta_irlanda.verirlanda') }}">Irlanda</a></li>
+                {% endblock %}
+                {% block li %}{% endblock %}
+            </ul>
+        </div>
+    </nav>
+    
+    <section>
+        {% block section %}{% endblock %}
+    </section>
+
+    <footer>
+        {% block footer %}{% endblock %}
+    </footer>
+</body>
+
+</html>

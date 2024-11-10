@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+{% block li %}
+{% block madrid %}
+<li><a href="{{ url_for('ruta_espana.vermadrid') }}">Madrid</a></li>
+{% endblock %}
+{% block barcelona %}
+<li><a href="{{ url_for('ruta_espana.verbarcelona') }}">Barcelona</a></li>
+{% endblock %}
+{% block sevilla %}
+<li><a href="{{ url_for('ruta_espana.versevilla') }}">Sevilla</a></li>
+{% endblock %}
+{% endblock %}
+
+{% block section %}
+{% block españa %}{% endblock %}
+<p class="espana">España, formalmente Reino de España,nota 1​ es un país soberano transcontinental, constituido en
+    Estado social y
+    democrático de derecho y cuya forma de gobierno es la monarquía parlamentaria. Es uno de los veintisiete Estados
+    soberanos que forman la Unión Europea. Su territorio, con capital en Madrid,30​ está organizado en diecisiete
+    comunidades autónomas, formadas a su vez por cincuenta provincias, y dos ciudades autónomas.
+</p>
+{% endblock %}
+
+{% block footer %}
+<p>ESPAÑA</p>
+<p>Email: españa@gmail.com</p>
+<p>
+    Sígueme en:
+    <a href="#" target="_blank">Instagram</a>
+    <a href="#" target="_blank">Facebook</a>
+</p>
+{% endblock %}
+
+</html>

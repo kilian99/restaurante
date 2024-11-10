@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block section %}
+<p>ESTE ES ES INDEX DE MI PAGINA WEB DE PAISES</p>
+<img src="{{ url_for('static', filename='images/images.png') }}" href="{{ url_for('ruta_espana.verespana') }}">
+<img src="{{ url_for('static', filename='images/images (1).png') }}" href="{{ url_for('ruta_croacia.vercroacia') }}">
+<img src="{{ url_for('static', filename='images/descarga.png') }}" href="{{ url_for('ruta_irlanda.verirlanda') }}">
+{% endblock %}
+{% block footer %}
+<p>INDEX</p>
+<p>Email: index@gmail.com</p>
+<p>
+    Sígueme en:
+    <a href="#" target="_blank">Instagram</a>
+    <a href="#" target="_blank">Facebook</a>
+</p>
+{% endblock %}

@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% block li %}
+    {% block dublin %}
+    <li><a href="{{ url_for('ruta_irlanda.verdublin') }}">Dublin</a></li>
+    {% endblock %}
+    {% block galway %}
+    <li><a href="{{ url_for('ruta_irlanda.vergalway') }}">Galway</a></li>
+    {% endblock %}
+    {% block cork %}
+    <li><a href="{{ url_for('ruta_irlanda.vercork') }}">Cork</a></li>
+    {% endblock %}
+    {% endblock %}
+
+    {% block section %}
+    {% block irlanda %}{% endblock %}
+
+    <p class="irlanda">Irlanda (en irlandés: Éire, pronunciado [ˈeːɾʲə]; en inglés: Ireland, pronunciado /ˈaɪəɹlʲəndʲ/),
+        conocida también por su descripción alternativa República de Irlanda (en irlandés: Poblacht na hÉireann; en
+        inglés:
+        Republic of Ireland)5​ para diferenciarla de Irlanda del Norte, es uno de los veintisiete Estados soberanos que
+        forman la Unión Europea. Ocupa la mayor parte de la isla homónima. Su capital y ciudad más poblada es Dublín,
+        situada en el este de la isla. El país tiene una única frontera terrestre, con Irlanda del Norte, una de las
+        naciones constitutivas del Reino Unido. La isla está rodeada por el océano Atlántico y tiene el mar Céltico al
+        sur,
+        el canal de San Jorge al sureste y el mar de Irlanda al este. Es una república parlamentaria con un presidente
+        electo que ejerce de jefe de Estado. El jefe del gobierno, el Taoiseach, es nombrado por la Cámara Baja del
+        Parlamento, la Dáil Éireann.
+    </p>
+    {% endblock %}
+
+    {% block footer %}
+
+    <p>IRLANDA</p>
+    <p>Email: irlanda@gmail.com</p>
+    <p>
+        Sígueme en:
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Facebook</a>
+    </p>
+
+    {% endblock %}
+
+</body>
+
+</html>

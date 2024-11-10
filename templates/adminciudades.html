@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+  {% block section %}
+
+  <div>
+    <h2>Buscar por pais</h2>
+    <form action="/verciudad" method="post">
+      <label for="id_paises">Nombre Pais:</label>
+      <select name="id_paises">
+        {% for pais in paises %}
+        <option value="{{pais.id}}">{{pais.nombre}}</option>
+        {% endfor %}
+      </select>
+      <input type="submit" value="Ver" />
+    </form>
+  </div>
+
+  <br>
+
+  <table style="width: 60%; border: 1px solid black; border-collapse: collapse;">
+    <tr>
+      <th style="border: 1px solid; padding: 10px;">ID</th>
+      <th style="border: 1px solid; padding: 10px;">Ciudades</th>
+      <th style="border: 1px solid; padding: 10px;">Contenido</th>
+      <th style="border: 1px solid; padding: 10px;">Id Pais</th>
+    </tr>
+    {% for ciudad in ciudades %}
+
+    <tr>
+      <th style="border: 1px solid; padding: 10px;">{{ ciudad.id }}</th>
+      <th style="border: 1px solid; padding: 10px;">{{ ciudad.ciudades }}</th>
+      <th style="border: 1px solid; padding: 10px;">{{ ciudad.contenido }}</th>
+      <th style="border: 1px solid; padding: 10px;">{{ ciudad.id_paises }}</th>
+      <th style="border: 1px solid; padding: 10px;">
+        <form action="/delciudad" method="post">
+          <input type="hidden" name="id" value="{{ciudad.id}}" />
+          <input type="submit" value="Borrar" />
+        </form>
+      </th>
+    </tr>
+    {% endfor %}
+
+  </table>
+
+  <br>
+
+  <form action="/addciudad" method="post">
+    <label for="id">Id</label>
+    <input type="text" name="id" value="" />
+    <label for="ciudades">Ciudades</label>
+    <input type="text" name="ciudades" value="" />
+    <label for="contenido">Contenido</label>
+    <textarea type="text" name="contenido" value=""></textarea>
+    <label for="id_paises">Id pais</label>
+    <input type="text" name="id_paises" value="" />
+    <input type="submit" value="Añadir" />
+  </form>
+
+  <br>
+
+  <form action="/updateciudad" method="post">
+
+    <label for="id">Id</label>
+    <select name="id">
+      {% for ciudad in ciudades %}
+      <option value="{{ciudad.id}}">{{ciudad.id}}</option>
+      {% endfor %}
+    </select>
+    <label for="ciudades">Ciudades</label>
+    <input type="text" name="ciudades" value="" />
+    <label for="contenido">Contenido</label>
+    <textarea type="text" name="contenido" value=""></textarea>
+
+    <input type="submit" value="Actualizar" />
+  </form>
+  <br>
+  {% endblock %}
+
+  {% block footer %}
+  <p>ADMIN</p>
+  <p>Email: admin@gmail.com</p>
+  <p>
+    Sígueme en:
+    <a href="#" target="_blank">Instagram</a>
+    <a href="#" target="_blank">Facebook</a>
+  </p>
+  {% endblock %}
+
+</body>
+
+</html>

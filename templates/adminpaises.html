@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% block section %}
+
+    <table style="width: 60%; border: 1px solid black; border-collapse: collapse;">
+        <tr>
+            <th style="border: 1px solid; padding: 10px;">ID</th>
+            <th style="border: 1px solid; padding: 10px;">Nombre</th>
+        </tr>
+
+        {% for pais in paises %}
+        <tr>
+            <th style="border: 1px solid; padding: 10px;">{{ pais.id }}</td>
+            <th style="border: 1px solid; padding: 10px;">{{ pais.nombre }}</td>
+            <th style="border: 1px solid; padding: 10px;">
+                <form action="/delpaises" method="post">
+                    <input type="hidden" name="id" value="{{pais.id}}" />
+                    <input type="submit" value="Borrar" />
+                </form>
+            </th>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+
+    <form action="/addpaises" method="post">
+        <label for="id">Id</label>
+        <input type="text" name="id" value="" />
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" value="" />
+        <input type="submit" value="Añadir" />
+    </form>
+
+    <br>
+
+    <form action="/updatepaises" method="post">
+        <label for="paises">Paises:</label>
+        <select name="idpaises">
+            {% for pais in paises %}
+            <option value="{{pais.id}}">{{pais.nombre}}</option>
+            {% endfor %}
+        </select>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" value="" />
+        <input type="submit" value="Actualizar" />
+    </form>
+    <br>
+    {% endblock %}
+
+    {% block footer %}
+    <p>ADMIN</p>
+    <p>Email: admin@gmail.com</p>
+    <p>
+        Sígueme en:
+        <a href="#" target="_blank">Instagram</a>
+        <a href="#" target="_blank">Facebook</a>
+    </p>
+    {% endblock %}
+
+</body>
+
+</html>

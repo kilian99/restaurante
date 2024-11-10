@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+{% block li %}
+{% block zagreb %}
+<li><a href="{{ url_for('ruta_croacia.verzagreb') }}">Zagreb</a></li>
+{% endblock %}
+{% block zadar %}
+<li><a href="{{ url_for('ruta_croacia.verzadar') }}">Zadar</a></li>
+{% endblock %}
+{% block split %}
+<li><a href="{{ url_for('ruta_croacia.versplit') }}">Split</a></li>
+{% endblock %}
+{% endblock %}
+
+{% block section %}
+{% block croacia %}{% endblock %}
+<p class="croacia">Croacia (en croata: Hrvatska), oficialmente República de Croacia (Republika Hrvatskaⓘ), es uno de los
+    veintisiete
+    Estados soberanos que forman la Unión Europea, ubicado entre Europa Central, Europa meridional y el mar Adriático;
+    limita al noreste con Hungría, al este con Serbia, al sureste con Bosnia-Herzegovina y Montenegro, al noroeste con
+    Eslovenia y al suroeste con el mar Adriático; donde comparte una frontera marítima con Italia.
+</p>
+{% endblock %}
+
+{% block footer %}
+<p>CROACIA</p>
+<p>Email: croacia@gmail.com</p>
+<p>
+    Sígueme en:
+    <a href="#" target="_blank">Instagram</a>
+    <a href="#" target="_blank">Facebook</a>
+</p>
+{% endblock %}
+
+</html>

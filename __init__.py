@@ -1,4 +1,4 @@
-from flask import Flask
+
 
 import mysql.connector
 
@@ -20,12 +20,12 @@ def create_app():
 
     
 
-    from .routes import routes_croacia
-    from .routes import routes_espana
-    from .routes import routes_irlanda
-    from .routes import routes_ciudades
-    from .routes import routes_paises
-    from .routes import routes_personajes
+    from .blog.routes import routes_croacia
+    from .blog.routes import routes_espana
+    from .blog.routes import routes_irlanda
+    from .blog.routes import routes_ciudades
+    from .blog.routes import routes_paises
+    from .blog.routes import routes_personajes
     app.register_blueprint(routes_croacia.rutas_croacia)
     app.register_blueprint(routes_espana.rutas_espana)
     app.register_blueprint(routes_irlanda.rutas_irlanda)

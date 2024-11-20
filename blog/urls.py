@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import CrearReserva, ListaReservas
+from .views import CrearReserva, ListaReservas, inicio
 
 urlpatterns = [
     path('', views.post_list, name='post_list'),
@@ -9,4 +9,5 @@ urlpatterns = [
     path('post/<int:pk>/edit/', views.post_edit, name='post_edit'),
     path('reservas/crear/', CrearReserva.as_view(), name='crear_reserva'),
     path('reservas/', ListaReservas.as_view(), name='lista_reservas'),
+    path('inicio/', inicio, name='inicio'),
 ]

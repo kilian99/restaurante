@@ -1,13 +1,37 @@
-.page-header {
-    background-color: #f58535;
-    margin-top: 0;
-    padding: 20px 20px 20px 40px;
+.navbar {
+    font-family: 'Helvetica Neue', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.page-header h1, .page-header h1 a, .page-header h1 a:visited, .page-header h1 a:active {
-    color: #ffffff;
-    font-size: 36pt;
-    text-decoration: none;
+.navbar .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.15rem;
+    text-transform: uppercase;
+}
+
+.navbar .nav-link {
+    color: #000; /* Negro para el texto */
+    margin: 0 15px;
+    text-transform: uppercase;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar .nav-link:hover {
+    color: #555; /* Color gris al hacer hover */
+}
+
+.navbar-light.fixed-top {
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar.scrolled {
+    background-color: #fff; /* Fondo blanco sólido al hacer scroll */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .content {
@@ -46,7 +70,7 @@ h1, h2, h3, h4 {
 }
 
 .footer{
-    background-color: #f58535;
+    background-color: black;
     padding: 20px 0;
     text-align: center;
 }

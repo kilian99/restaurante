@@ -2,21 +2,42 @@
 <html>
 
 <head>
-    <title>TFG blog</title>
+    <title>Caseta Las Barcas</title>
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
     <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
-    <div class="page-header">
-        {% if user.is_authenticated %}
-        <a href="{% url 'post_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
-        {% endif %}
-        <h1><a href="/">TFG Blog</a></h1>
-        <li><a href="/reservas/crear">Reservas</a></li>
-    </div>
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-transparent">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Caseta Las Barcas</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="inicio">Historia</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#menu">Menú</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reservas/crear">Reservas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
     <div class="content container">
         <div class="row">
             <div class="col-md-8">
@@ -25,6 +46,16 @@
             </div>
         </div>
     </div>
+    <script>
+        window.addEventListener('scroll', function () {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+    </script>
 </body>
 
 <footer class="footer">
@@ -38,5 +69,4 @@
         </p>
     {% endblock %}
 </footer>
-
 </html>

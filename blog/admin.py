@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Mesa, Reserva
+from .models import Post, Mesa, Reserva, ImagenCarrusel
 
 admin.site.register(Post)
 
@@ -11,3 +11,7 @@ class MesaAdmin(admin.ModelAdmin):
 class ReservaAdmin(admin.ModelAdmin):
     list_display = ('nombre_cliente', 'fecha','hora', 'mesa')
     list_filter = ('fecha','hora', 'mesa')
+
+@admin.register(ImagenCarrusel)
+class ImagenCarruselAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'imagen')

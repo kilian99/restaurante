@@ -41,3 +41,11 @@ class Reserva(models.Model):
 
     def __str__(self):
         return f"Reserva de {self.nombre_cliente} para el dia {self.fecha} a las {self.hora}"
+    
+class ImagenCarrusel(models.Model):
+    titulo = models.CharField(max_length=100, blank=True)
+    imagen = models.ImageField(upload_to='carrusel/')
+    descripcion = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return self.titulo or f"Imagen {self.id}"

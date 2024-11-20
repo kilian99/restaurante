@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .models import Post, Reserva
+from .models import Post, Reserva, ImagenCarrusel
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm, ReservaForm
 from django.views.generic import CreateView, ListView
@@ -50,3 +50,7 @@ class CrearReserva(CreateView):
 class ListaReservas(ListView):
     model = Reserva
     template_name = 'blog/lista_reservas.html'
+
+def inicio(request):
+    imagenes = ImagenCarrusel.objects.all()
+    return render(request, 'blog/inicio.html', {'imagenes': imagenes})

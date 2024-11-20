@@ -1,8 +1,10 @@
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from .models import Post
+from .models import Post, Reserva
 from django.shortcuts import render, get_object_or_404
-from .forms import PostForm
+from .forms import PostForm, ReservaForm
+from django.views.generic import CreateView, ListView
+
 
 def post_list(request):
     posts = Post.objects.all()
@@ -38,3 +40,13 @@ def post_edit(request, pk):
     else:
         form = PostForm(instance=post)
     return render(request, 'blog/post_edit.html', {'form': form})
+
+class CrearReserva(CreateView):
+    model = Reserva
+    form_class = ReservaForm
+    template_name = 'blog/crear_reserva.html'
+    success_url = '/reservas/'
+
+class ListaReservas(ListView):
+    model = Reserva
+    template_name = 'blog/lista_reservas.html'

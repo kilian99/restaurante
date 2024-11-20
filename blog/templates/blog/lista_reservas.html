@@ -1,0 +1,10 @@
+{% extends 'blog/base.html' %}
+
+{% block content %}
+<h1>Lista de Reservas</h1>
+<ul>
+    {% for reserva in object_list %}
+        <li>{{ reserva.nombre_cliente }} - {{ reserva.fecha }} - {{ reserva.hora }} - Mesa {{ reserva.mesa.numero }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

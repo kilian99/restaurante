@@ -42,6 +42,10 @@ h1, h2, h3, h4 {
     font-family: 'Lobster', cursive;
 }
 
+body {
+    padding-top: 70px; /* Ajusta este valor según la altura de tu navbar */
+}
+
 .date {
     color: #828282;
 }
@@ -71,12 +75,23 @@ h1, h2, h3, h4 {
 
 .footer{
     background-color: black;
-    padding: 20px 0;
+    padding: 10px 20px;
     text-align: center;
 }
 
-.footer a{
+.footer p{
     font-family: sans-serif;
     font-weight: 600;
     font-size: large;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ocupa al menos toda la altura de la ventana */
+}
+
+main {
+    flex: 1; /* Crece para ocupar el espacio disponible */
+    padding: 20px;
 }

@@ -1,0 +1,29 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4">Nuestra Historia</h2>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="{% static 'static/images/realM.jpg' %}" class="img-fluid rounded" alt="Nuestra historia">
+        </div>
+        <div class="col-md-6">
+            <p>
+                Nuestro restaurante nació en el corazón de la ciudad en el año 2000, con la pasión de compartir
+                la auténtica cocina tradicional con nuestros clientes. Desde entonces, hemos crecido y evolucionado,
+                manteniendo siempre el compromiso de ofrecer platos de la más alta calidad.
+            </p>
+            <p>
+                A lo largo de los años, hemos incorporado recetas innovadoras, respetando siempre nuestras raíces
+                gastronómicas. Gracias al apoyo de nuestra comunidad y la dedicación de nuestro equipo, nos hemos
+                convertido en un referente de la cocina local.
+            </p>
+            <p>
+                Hoy en día, seguimos trabajando con el mismo entusiasmo para brindar experiencias inolvidables a
+                todos nuestros visitantes. ¡Gracias por ser parte de nuestra historia!
+            </p>
+        </div>
+    </div>
+</div>
+{% endblock %}

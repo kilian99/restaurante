@@ -31,7 +31,7 @@ class CrearReserva(CreateView):
     model = Reserva
     form_class = ReservaForm
     template_name = 'blog/crear_reserva.html'
-    success_url = '/reservas/'
+    success_url = 'reservas/exito'
 
 class ListaReservas(ListView):
     model = Reserva
@@ -51,3 +51,29 @@ def menu(request):
 
 def historia(request):
     return render(request, 'blog/historia.html')
+
+def reservar(request):
+    if request.method == 'POST':
+        form = ReservaForm(request.POST)
+        if form.is_valid():
+            reserva = form.save(commit=False)
+            # Verificar que la mesa tenga capacidad suficiente
+            if reserva.num_personas <= reserva.mesa.capacidad:
+                # Verificar que la mesa no esté reservada a la misma hora y fecha
+                mesas_reservadas = Reserva.objects.filter(
+                    fecha=reserva.fecha, hora=reserva.hora, mesa=reserva.mesa
+                )
+                if not mesas_reservadas:
+                    reserva.save()
+                    return redirect('reservas_exito')  # Redirige a una página de éxito
+                else:
+                    form.add_error('mesa', 'Esta mesa ya está reservada para la fecha y hora seleccionadas.')
+            else:
+                form.add_error('mesa', 'La capacidad de la mesa no es suficiente para el número de personas.')
+    else:
+        # Filtrar mesas disponibles según el número de personas ingresado
+        form = ReservaForm()
+    return render(request, 'blog/crear_reserva.html', {'form': form})
+
+def reservas_exito(request):
+    return render(request, 'blog/reservas_exito.html')

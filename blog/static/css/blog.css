@@ -73,16 +73,11 @@ body {
     color: #000000;
 }
 
-.footer{
-    background-color: black;
-    padding: 10px 20px;
-    text-align: center;
-}
-
 .footer p{
     font-family: sans-serif;
     font-weight: 600;
     font-size: large;
+    color: white;
 }
 
 .wrapper {

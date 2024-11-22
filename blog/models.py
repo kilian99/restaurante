@@ -38,6 +38,7 @@ class Reserva(models.Model):
     hora = models.TimeField(default=time(12,0))
     mesa = models.ForeignKey(Mesa, on_delete=models.CASCADE)
     comentarios = models.TextField(blank=True, null=True)
+    num_personas = models.IntegerField(default=1)
 
     def __str__(self):
         return f"Reserva de {self.nombre_cliente} para el dia {self.fecha} a las {self.hora}"

@@ -5,7 +5,7 @@ admin.site.register(Post)
 
 @admin.register(Mesa)
 class MesaAdmin(admin.ModelAdmin):
-    list_display = ('numero', 'capacidad')
+    list_display = ('numero',)
 
 @admin.register(Reserva)
 class ReservaAdmin(admin.ModelAdmin):

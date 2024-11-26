@@ -4,15 +4,12 @@ from .models import Post, Reserva, ImagenCarrusel, MenuItem
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm, ReservaForm
 from django.views.generic import CreateView, ListView
+from django.contrib import messages
 
 
-def post_list(request):
-    posts = Post.objects.all()
-    return render(request, 'blog/post_list.html', {'posts': posts})
-
-def post_detail(request, pk):
-    post = get_object_or_404(Post, pk=pk)
-    return render(request, 'blog/post_detail.html', {'post': post})
+def index(request):
+    index = Post.objects.all()
+    return render(request, 'blog/index.html', {'index': index})
 
 def post_new(request):
     if request.method == "POST":
@@ -56,20 +53,12 @@ def reservar(request):
     if request.method == 'POST':
         form = ReservaForm(request.POST)
         if form.is_valid():
-            reserva = form.save(commit=False)
-            # Verificar que la mesa tenga capacidad suficiente
-            if reserva.num_personas <= reserva.mesa.capacidad:
-                # Verificar que la mesa no esté reservada a la misma hora y fecha
-                mesas_reservadas = Reserva.objects.filter(
-                    fecha=reserva.fecha, hora=reserva.hora, mesa=reserva.mesa
-                )
-                if not mesas_reservadas:
-                    reserva.save()
-                    return redirect('reservas_exito')  # Redirige a una página de éxito
-                else:
-                    form.add_error('mesa', 'Esta mesa ya está reservada para la fecha y hora seleccionadas.')
-            else:
-                form.add_error('mesa', 'La capacidad de la mesa no es suficiente para el número de personas.')
+            reserva = form.save()
+            mesa = reserva.mesa
+            mesa.disponible = False
+            mesa.save()
+            messages.success(request, "Reserva realizada con éxito.")
+            return redirect('home')
     else:
         # Filtrar mesas disponibles según el número de personas ingresado
         form = ReservaForm()
@@ -77,3 +66,12 @@ def reservar(request):
 
 def reservas_exito(request):
     return render(request, 'blog/reservas_exito.html')
+
+def cancelar_reserva(request, reserva_id):
+    reserva = get_object_or_404(Reserva, id=reserva_id)
+    mesa = reserva.mesa
+    mesa.disponible = True
+    mesa.save()
+    reserva.delete()
+    messages.success(request, "Reserva cancelada y mesa liberada.")
+    return redirect('home')

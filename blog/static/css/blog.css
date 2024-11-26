@@ -43,7 +43,7 @@ h1, h2, h3, h4 {
 }
 
 body {
-    padding-top: 70px; /* Ajusta este valor según la altura de tu navbar */
+    padding-top: 70px;
 }
 
 .date {
@@ -73,20 +73,15 @@ body {
     color: #000000;
 }
 
+.footer{
+    background-color: black;
+    padding: 10px;
+    text-align: center;
+}
+
 .footer p{
     font-family: sans-serif;
     font-weight: 600;
     font-size: large;
     color: white;
-}
-
-.wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh; /* Ocupa al menos toda la altura de la ventana */
-}
-
-main {
-    flex: 1; /* Crece para ocupar el espacio disponible */
-    padding: 20px;
 }

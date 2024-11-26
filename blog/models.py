@@ -2,6 +2,7 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 from datetime import date, time
+from django.utils.timezone import now
 
 
 class Post(models.Model):
@@ -25,10 +26,10 @@ class Post(models.Model):
 
 class Mesa(models.Model):
     numero = models.IntegerField(unique=True)
-    capacidad = models.IntegerField()
+    disponible = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"Mesa {self.numero} (Capacidad: {self.capacidad})"
+        return f"Mesa {self.numero} - {'Disponible' if self.disponible else 'Reservada'}"
 
 class Reserva(models.Model):
     nombre_cliente = models.CharField(max_length=100)
@@ -42,6 +43,12 @@ class Reserva(models.Model):
 
     def __str__(self):
         return f"Reserva de {self.nombre_cliente} para el dia {self.fecha} a las {self.hora}"
+    
+    def liberar_mesa(self):
+        if self.fecha < now().date() or (self.fecha == now().date() and self.hora < now().time()):
+            self.mesa.disponible = True
+            self.mesa.save()
+            
     
 class ImagenCarrusel(models.Model):
     titulo = models.CharField(max_length=100, blank=True)

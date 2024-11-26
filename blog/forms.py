@@ -17,8 +17,4 @@ class ReservaForm(forms.ModelForm):
         }
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        if 'fecha' in self.data and 'hora' in self.data:
-            fecha = self.data.get('fecha')
-            hora = self.data.get('hora')
-            mesas_ocupadas = Reserva.objects.filter(fecha=fecha, hora=hora).values_list('mesa_id', flat=True)
-            self.fields['mesa'].queryset = Mesa.objects.exclude(id__in=mesas_ocupadas)
+        self.fields['mesa'].queryset = Mesa.objects.filter(disponible=True)

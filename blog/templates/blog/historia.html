@@ -2,71 +2,137 @@
 {% load static %}
 
 {% block content %}
-<div class="container py-5">
-    <h2 class="text-center mb-4">Nuestra Historia</h2>
-    <div class="row">
-        <div class="col-md-6">
-            <img src="{% static '/images/realM.jpg' %}" class="img-fluid rounded" alt="Nuestra historia">
+<div class="container container-fluid historia-section">
+    <h2 class="text-center py-4 title">Nuestra Historia</h2>
+
+    <!-- Primera sección: La Pesquera y el Río Águeda -->
+    <section class="row align-items-center no-gutters" data-aos="fade-up">
+        <div class="col-md-6 p-3"> <!-- Espacio añadido aquí -->
+            <img src="{% static 'images/lapesquera.jpg' %}" class="img-fluid rounded shadow" alt="La Pesquera junto al Río Águeda" loading="lazy">
         </div>
-        <div class="col-md-6">
-            <p>
-                Nuestro restaurante nació en el corazón de la ciudad en el año 2000, con la pasión de compartir
-                la auténtica cocina tradicional con nuestros clientes. Desde entonces, hemos crecido y evolucionado,
-                manteniendo siempre el compromiso de ofrecer platos de la más alta calidad.
-            </p>
-            <p>
-                A lo largo de los años, hemos incorporado recetas innovadoras, respetando siempre nuestras raíces
-                gastronómicas. Gracias al apoyo de nuestra comunidad y la dedicación de nuestro equipo, nos hemos
-                convertido en un referente de la cocina local.
-            </p>
-            <p>
-                Hoy en día, seguimos trabajando con el mismo entusiasmo para brindar experiencias inolvidables a
-                todos nuestros visitantes. ¡Gracias por ser parte de nuestra historia!
-            </p>
+        <div class="col-md-6 p-5">
+            <p>La Pesquera es una zona de picnic situada junto al Río Águeda. Este entorno natural ofrece la oportunidad de disfrutar de un día tranquilo al aire libre...</p>
+            <p>Merece la pena visitar Ciudad Rodrigo, en 1944 fue declarada Conjunto Histórico-Artístico...</p>
         </div>
-    </div>
+    </section>
+
+    <!-- Segunda sección: El Castillo de Enrique II -->
+    <section class="row align-items-center" data-aos="fade-up">
+        <div class="col-md-6 p-5">
+            <p>Ciudad Rodrigo es una joya histórica situada en la provincia de Salamanca...</p>
+            <p>Este recinto amurallado, de más de dos kilómetros de perímetro, alberga siete puertas...</p>
+        </div>
+        <div class="col-md-6 p-3"> <!-- Espacio añadido aquí -->
+            <img src="{% static 'images/castillo.jpg' %}" class="img-fluid rounded shadow" alt="Castillo de Enrique II" loading="lazy">
+        </div>
+    </section>
+
+    <!-- Tercera sección: Arquitectura de Ciudad Rodrigo -->
+    <section class="row align-items-center" data-aos="fade-up">
+        <div class="col-md-6 p-3"> <!-- Espacio añadido aquí -->
+            <img src="{% static 'images/arquitectura.jpg' %}" class="img-fluid rounded shadow" alt="Arquitectura en Ciudad Rodrigo" loading="lazy">
+        </div>
+        <div class="col-md-6 p-5">
+            <p>La arquitectura de Ciudad Rodrigo refleja su evolución histórica...</p>
+            <p>Además, la ciudad alberga palacetes y casas nobiliarias...</p>
+        </div>
+    </section>
+
+    <!-- Línea de Tiempo Histórica -->
+    <section class="timeline-section mb-5" data-aos="fade-up">
+        <h3 class="text-center">Línea de Tiempo Histórica de Ciudad Rodrigo</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <h4>Siglo XII</h4>
+                <p><strong>Construcción de la Muralla Medieval</strong>: Iniciada bajo el reinado de Fernando II para proteger la ciudad.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Siglo XIV</h4>
+                <p><strong>Construcción del Castillo de Enrique II</strong>: Fortaleza edificada durante el reinado de Enrique II de Castilla.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Siglo XV</h4>
+                <p><strong>Ampliación de la Muralla</strong>: Se añaden más elementos defensivos y se refuerza la estructura original.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Siglo XVI</h4>
+                <p><strong>Finalización de la Catedral de Santa María</strong>: Construida entre los siglos XII y XVI, con su destacada Puerta de las Cadenas y la sillería tallada del coro.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Siglo XIX</h4>
+                <p><strong>Guerra de la Independencia Española</strong>: Ciudad Rodrigo es sitio de importantes batallas y asedios durante la guerra contra Napoleón.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Siglo XX</h4>
+                <p><strong>1944</strong>: Declaración de Ciudad Rodrigo como Conjunto Histórico-Artístico debido a su valioso patrimonio arquitectónico y cultural.</p>
+            </div>
+            <div class="timeline-item">
+                <h4>Actualidad</h4>
+                <p><strong>Desarrollo Turístico</strong>: Ciudad Rodrigo se consolida como un destino turístico destacado, valorando su patrimonio histórico y cultural.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de Imágenes -->
+    <section class="gallery-section mb-5" data-aos="fade-up">
+        <h3 class="text-center">Galería de Imágenes</h3>
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="{% static 'images/caseta.jpg' %}" class="img-fluid rounded shadow gallery-img" alt="La Caseta Las Barcas" loading="lazy">
+                    <div class="overlay">
+                        <p>La Caseta Las Barcas, un rincón ideal junto al río</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="{% static 'images/puente.jpg' %}" class="img-fluid rounded shadow gallery-img" alt="El puente sobre el Río Águeda" loading="lazy">
+                    <div class="overlay">
+                        <p>El puente sobre el Río Águeda, en la entrada de la ciudad</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="{% static 'images/ciudad.jpg' %}" class="img-fluid rounded shadow gallery-img" alt="Vista panorámica de Ciudad Rodrigo" loading="lazy">
+                    <div class="overlay">
+                        <p>Vista panorámica de Ciudad Rodrigo</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
     
-    <div class="row">
-        <div class="col-md-6">
-            <p>
-                Nuestro restaurante nació en el corazón de la ciudad en el año 2000, con la pasión de compartir
-                la auténtica cocina tradicional con nuestros clientes. Desde entonces, hemos crecido y evolucionado,
-                manteniendo siempre el compromiso de ofrecer platos de la más alta calidad.
-            </p>
-            <p>
-                A lo largo de los años, hemos incorporado recetas innovadoras, respetando siempre nuestras raíces
-                gastronómicas. Gracias al apoyo de nuestra comunidad y la dedicación de nuestro equipo, nos hemos
-                convertido en un referente de la cocina local.
-            </p>
-            <p>
-                Hoy en día, seguimos trabajando con el mismo entusiasmo para brindar experiencias inolvidables a
-                todos nuestros visitantes. ¡Gracias por ser parte de nuestra historia!
-            </p>
+    <section class="gallery-section mb-5" data-aos="fade-up">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="{% static 'images/caseta.jpg' %}" class="img-fluid rounded shadow gallery-img" alt="La Caseta Las Barcas" loading="lazy">
+                    <div class="overlay">
+                        <p>La Caseta Las Barcas, un rincón ideal junto al río</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="{% static 'images/puente.jpg' %}" class="img-fluid rounded shadow gallery-img" alt="El puente sobre el Río Águeda" loading="lazy">
+                    <div class="overlay">
+                        <p>El puente sobre el Río Águeda, en la entrada de la ciudad</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="gallery-item">
+                    <img src="{% static 'images/ciudad.jpg' %}" class="img-fluid rounded shadow gallery-img" alt="Vista panorámica de Ciudad Rodrigo" loading="lazy">
+                    <div class="overlay">
+                        <p>Vista panorámica de Ciudad Rodrigo</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6">
-            <img src="{% static '/images/realM.jpg' %}" class="img-fluid rounded" alt="Nuestra historia">
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-6">
-            <img src="{% static '/images/realM.jpg' %}" class="img-fluid rounded" alt="Nuestra historia">
-        </div>
-        <div class="col-md-6">
-            <p>
-                Nuestro restaurante nació en el corazón de la ciudad en el año 2000, con la pasión de compartir
-                la auténtica cocina tradicional con nuestros clientes. Desde entonces, hemos crecido y evolucionado,
-                manteniendo siempre el compromiso de ofrecer platos de la más alta calidad.
-            </p>
-            <p>
-                A lo largo de los años, hemos incorporado recetas innovadoras, respetando siempre nuestras raíces
-                gastronómicas. Gracias al apoyo de nuestra comunidad y la dedicación de nuestro equipo, nos hemos
-                convertido en un referente de la cocina local.
-            </p>
-            <p>
-                Hoy en día, seguimos trabajando con el mismo entusiasmo para brindar experiencias inolvidables a
-                todos nuestros visitantes. ¡Gracias por ser parte de nuestra historia!
-            </p>
-        </div>
-    </div>
+    </section>
 </div>
 {% endblock %}
+
+

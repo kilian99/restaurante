@@ -1,0 +1,27 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block content %}
+<div class="container py-5">
+    <h2 class="text-center mb-4" id="section-title">
+        Últimas Noticias
+    </h2>
+    <div class="row">
+        {% for post in posts %}
+        <div class="col-md-12 mb-4">
+            <div class="card shadow border-0 rounded-lg overflow-hidden">
+                <div class="card-body" id="post-card-body">
+                    <h5 class="card-title text-center" id="post-title">
+                        {{ post.title }}
+                    </h5>
+                    <hr id="card-divider">
+                    <p class="card-text" id="post-text">
+                        {{ post.text }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+

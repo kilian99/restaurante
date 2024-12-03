@@ -1,13 +1,117 @@
 {% extends 'blog/base.html' %}
 {% load static %}
 {% block content %}
-    {% for post in index %}
-        <div class="post">
-            <div class="date">
-                {{ post.published_date }}
+<div class="banner hero-banner">
+    <div class="cta-container text-center">
+        <h1 class="cta-title">Bienvenidos a Caseta Las Barcas</h1>
+        <p class="cta-text">Descubre nuestros sabores únicos en Ciudad Rodrigo</p>
+        <a href="/menu" class="btn-cta">Explora el Menú</a>
+    </div>
+</div>
+
+<div class="container py-5">
+    <h2 class="text-center mb-4">¿Por qué elegirnos?</h2>
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="bi bi-cup-straw icon-custom"></i>
+                    <h4>Sabores Únicos</h4>
+                    <p>Ingredientes frescos y recetas tradicionales que te encantarán.</p>
+                </div>
             </div>
-            <h2>{{ post.title }}</h2>
-            <p>{{ post.text|linebreaksbr }}</p>
         </div>
-    {% endfor %}
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="bi bi-geo-alt icon-custom"></i>
+                    <h4>Ubicación Inmejorable</h4>
+                    <p>Estamos en el corazón de Ciudad Rodrigo, junto a los mejores paisajes.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    <i class="bi bi-stars icon-custom"></i>
+                    <h4>Experiencia Premium</h4>
+                    <p>Ambiente acogedor y un servicio que hará tu visita inolvidable.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="carruselRestaurante" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        {% for imagen in imagenes %}
+        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <img src="{{ imagen.imagen.url }}" class="carru d-block w-100" alt="{{ imagen.titulo }}">
+            <div class="carousel-caption d-none d-md-block">
+                <h5>{{ imagen.titulo }}</h5>
+                <p>{{ imagen.descripcion }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carruselRestaurante" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carruselRestaurante" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+    </button>
+</div>
+
+<div class="testimonial-section py-5">
+    <div id="carouselTestimonios" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active text-center p-4">
+                <p class="testimonial">"La mejor experiencia gastronómica que he tenido. ¡Volveré pronto!"</p>
+                <h5>- María G.</h5>
+            </div>
+            <div class="carousel-item text-center p-4">
+                <p class="testimonial">"Comida deliciosa, ambiente acogedor y un trato excelente."</p>
+                <h5>- Juan P.</h5>
+            </div>
+            <div class="carousel-item text-center p-4">
+                <p class="testimonial">"Perfecto para disfrutar de una comida especial con amigos o familia."</p>
+                <h5>- Laura S.</h5>
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselTestimonios" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselTestimonios" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+    </div>
+</div>
+
+<div class="container py-5">
+    <h2 class="text-center mb-4" style="font-size: 2.5rem; font-weight: bold;">Noticias Recientes</h2>
+    <div class="row">
+        {% for post in index %}
+        <div class="col-md-4 mb-4">
+            <div class="card shadow border-0 rounded-lg overflow-hidden">
+                <div class="card-body">
+                    <h5 class="card-title text-center" style="font-size: 1.25rem; font-weight: bold;">{{ post.title }}</h5>
+                    <p class="card-text" style="font-size: 1rem; color: #555;">{{ post.text|truncatewords:20 }}</p>
+                    <a href="{% url 'noticias' %}" class="btn btn-warning btn-sm mt-3" style="width: 100%; font-size: 1rem;">Leer más</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<div class="cta-container text-center">
+    <h2 class="cta-title">¿Listo para disfrutar de nuestra gastronomía?</h2>
+    <p class="cta-text">No pierdas la oportunidad de vivir una experiencia única en Caseta Las Barcas. ¡Reserva ahora!</p>
+    <a href="/reservas/crear" class="btn-cta">Reserva Ahora</a>
+</div>
 {% endblock %}

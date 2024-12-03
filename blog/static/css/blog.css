@@ -1,87 +1,435 @@
+/* Nav base */
+/* Navbar General */
 .navbar {
     font-family: 'Helvetica Neue', sans-serif;
-    font-size: 1.2rem;
-    font-weight: 400;
+    font-size: 1.1rem;
+    font-weight: 500;
     letter-spacing: 0.1rem;
-    transition: background-color 0.3s ease-in-out;
-}
-
-.navbar .navbar-brand {
-    font-size: 1.5rem;
-    font-weight: bold;
-    letter-spacing: 0.15rem;
-    text-transform: uppercase;
-}
-
-.navbar .nav-link {
-    color: #000; /* Negro para el texto */
-    margin: 0 15px;
-    text-transform: uppercase;
-    transition: color 0.3s ease-in-out;
-}
-
-.navbar .nav-link:hover {
-    color: #555; /* Color gris al hacer hover */
-}
-
-.navbar-light.fixed-top {
-    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    box-shadow: none;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 .navbar.scrolled {
-    background-color: #fff; /* Fondo blanco sólido al hacer scroll */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #000;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
 
-.content {
-    margin-left: 40px;
+/* Logo */
+.navbar .logo {
+    height: 50px;
+    margin-right: 15px;
 }
 
+/* Marca del Navbar */
+.navbar .navbar-brand {
+    color: #fff;
+    font-size: 1.6rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.15rem;
+}
+
+.navbar .navbar-brand:hover {
+    color: #f8c146;
+    text-decoration: none;
+}
+
+/* Links del Navbar */
+.navbar .nav-link {
+    color: #fff;
+    margin: 0 10px;
+    transition: color 0.3s ease-in-out;
+    text-transform: uppercase;
+}
+
+.navbar .nav-link.active, .navbar .nav-link:hover {
+    color: #f8c146;
+    font-weight: bold;
+}
+
+/* Botón Destacado */
+.navbar .btn-outline-light {
+    border: 2px solid #f8c146;
+    color: #f8c146;
+    font-weight: 500;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+    padding: 5px 15px;
+    text-transform: uppercase;
+}
+
+.navbar .btn-outline-light:hover {
+    background-color: #f8c146;
+    color: #000;
+    border-color: #f8c146;
+}
+
+/* Efecto de Desvanecimiento al Scroll */
+@media (min-width: 992px) {
+    .navbar {
+        position: sticky;
+        top: 0;
+        z-index: 1030;
+    }
+}
+
+
+/* Botones index */
+
+/* Contenedor principal */
+.cta-container {
+    padding: 50px 20px;
+    border-radius: 10px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 40px;
+}
+
+/* Título de la CTA */
+.cta-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Texto descriptivo de la CTA */
+.cta-text {
+    font-size: 1.25rem;
+    color: #ffffff;
+    margin-bottom: 30px;
+}
+
+/* Botón CTA */
+.btn-cta {
+    display: inline-block;
+    background-color: #f8c146;
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+/* Efecto hover en el botón */
+.btn-cta:hover {
+    color: white;
+    background-color: #f8c146;
+    transform: translateY(-3px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Body y fuente de letra */
 h1, h2, h3, h4 {
-    font-family: 'Lobster', cursive;
+    font-family: 'Rockwell', cursive;
 }
 
 body {
-    padding-top: 70px;
+    padding-top: 60px;
 }
 
-.date {
-    color: #828282;
+body {
+    background-image: url("../images/caseta.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
 }
 
-.save {
-    float: right;
+.contenedor-general {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
 }
 
-.post-form textarea, .post-form input {
-    width: 100%;
+/* Footer */
+.footer {
+    background-color: #000000; 
+    color: #ffffff;           
 }
 
-.top-menu, .top-menu:hover, .top-menu:visited {
+.footer a {
+    color: #f8f9fa;           /* Enlaces en un color claro */
+    text-decoration: none;
+}
+
+.footer a:hover {
+    text-decoration: underline; /* Subrayado al pasar el ratón */
+}
+
+.footer .icono{
+    height: 40px; /* Establece la altura de la imagen */
+    width: auto; /* Mantiene la proporción de la imagen */
+    margin-right: 10px; /* Espacio entre el logo y el texto */
+    vertical-align: middle; /* Centra verticalmente con el texto */
+}
+
+/* Imagenes historia */
+.historia-section img {
+    object-fit: cover;
+    height: 100%;
+    max-height: 600px;
+}
+
+/* Items Menu */
+.card-img-top {
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px 8px 0 0;
+}
+
+.foto {
+    height: 100px;
+    width: auto;
+    margin-right: 10px;
+    vertical-align: middle;
+}
+
+/* Index Menu */
+.menu-index {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.menu-index .nav-link {
     color: #ffffff;
-    float: right;
-    font-size: 26pt;
-    margin-right: 20px;
+    font-weight: bold;
+    margin: 0 15px;
+    transition: color 0.3s;
 }
 
-.post {
-    margin-bottom: 70px;
-}
-
-.post h2 a, .post h2 a:visited {
+.menu-index .nav-link:hover {
     color: #000000;
 }
 
-.footer{
-    background-color: black;
-    padding: 10px;
-    text-align: center;
+.categoria{
+    background-size: cover; 
+    background-position: center; 
+    padding: 30px 0;
 }
 
-.footer p{
-    font-family: sans-serif;
-    font-weight: 600;
-    font-size: large;
+/* Seccion Menu */
+.menu-section {
+    padding-top: 70px;
+    margin-top: -70px;
+}
+
+/* Imagen items Menu */
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Carrusel */
+.carousel-item img {
+    transition: transform 0.5s ease;
+}
+
+.carousel-item:hover img {
+    transform: scale(1.1);
+}
+
+.carru{
+    object-fit: cover; 
+    height: 500px;
+}
+
+/* Historia */
+.historia-section p {
+    color: #ffffff;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.gallery-img {
+    transform: scale(1.05); /* Suaviza el zoom y la sombra */
+}
+
+.gallery-item:hover .gallery-img {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen un 10% */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Añade sombra para dar efecto de profundidad */
+}
+
+.gallery-item {
+    overflow: hidden; /* Asegura que la imagen no salga del contenedor */
+}
+
+/* Noticias index */
+.card:hover {
+    transform: scale(1.05); /* Efecto de zoom suave */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra más prominente */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transición suave */
+}
+
+.card-img-top {
+    transition: transform 0.3s ease;
+}
+
+.card:hover .card-img-top {
+    transform: scale(1.1); /* Zoom en la imagen */
+}
+
+/* Contacto */
+.contacto{
+    margin-top: 20px;
+}
+
+/* Reservas */
+.reservas{
+    margin-top: 20px;
+}
+
+.formulario{
+    max-width: 500px; 
+    background: #f8f8f8; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+    color: black;
+}
+
+/* Reservas exito */
+.btn-glow {
+    color: #000000;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-glow:hover {
+    color: #000;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+}
+
+.suggestion-card:hover {
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+.btn-outline-primary {
+    border-color: #3b5998;
+    color: #3b5998;
+}
+
+.btn-outline-primary:hover {
+    background-color: #3b5998;
     color: white;
 }
+
+.btn-outline-info {
+    border-color: #00acee;
+    color: #00acee;
+}
+
+.btn-outline-info:hover {
+    background-color: #00acee;
+    color: white;
+}
+
+.btn-outline-success {
+    border-color: #25d366;
+    color: #25d366;
+}
+
+.btn-outline-success:hover {
+    background-color: #25d366;
+    color: white;
+}
+
+.btn-outline-danger {
+    border-color: #E1306C;
+    color: #E1306C;
+}
+
+.btn-outline-danger:hover {
+    background-color: #E1306C;
+    color: white;
+}
+
+.thank-you-section {
+    background: linear-gradient(135deg, #ff7e5f, #feb47b);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.thank-you-section h1 {
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.thank-you-section p {
+    font-size: 1.5rem;
+    line-height: 1.8;
+}
+
+.thank-you-section .btn {
+    font-weight: bold;
+    padding: 15px 30px;
+    border-radius: 25px;
+}
+
+/* Noticias */
+/* Título de la sección de Noticias */
+#section-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 0.1rem;
+    margin-bottom: 30px;
+}
+
+/* Estilo de la tarjeta */
+.card {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: none;
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Fondo gradiente del cuerpo de la tarjeta */
+#post-card-body {
+    padding: 30px;
+    background-color: rgb(119, 119, 119);
+}
+
+/* Título de cada post */
+#post-title {
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Línea de separación entre título y texto */
+#card-divider {
+    border-top: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Texto del post */
+#post-text {
+    font-size: 1.2rem;
+    color: white;
+    text-align: justify;
+    line-height: 1.8;
+}
+

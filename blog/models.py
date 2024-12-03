@@ -26,10 +26,11 @@ class Post(models.Model):
 
 class Mesa(models.Model):
     numero = models.IntegerField(unique=True)
+    capacidad = models.IntegerField(default=True)
     disponible = models.BooleanField(default=True)
 
     def __str__(self):
-        return f"Mesa {self.numero} - {'Disponible' if self.disponible else 'Reservada'}"
+        return f"Mesa {self.numero} - {'Disponible' if self.disponible else 'Reservada'} - (Capacidad: {self.capacidad})"
 
 class Reserva(models.Model):
     nombre_cliente = models.CharField(max_length=100)
@@ -69,6 +70,7 @@ class MenuItem(models.Model):
         ('Bebidas', 'Bebidas'),
     ])
     disponible = models.BooleanField(default=True)
+    imagen = models.ImageField(upload_to='menu/', blank=True, null=True)
 
     def __str__(self):
         return self.nombre

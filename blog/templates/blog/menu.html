@@ -8,7 +8,7 @@
         <ul class="nav justify-content-center">
             {% for categoria in categorias %}
             <li class="nav-item mx-3">
-                <a class="nav-link text-uppercase font-weight-bold" href="#{{ categoria|slugify }}" 
+                <a class="nav-link text-uppercase font-weight-bold" href="#{{ categoria|slugify }}"
                     style="font-size: 1.2rem; color: #ffffff; background-color: rgb(96, 90, 76);">
                     {{ categoria }}
                 </a>
@@ -26,9 +26,10 @@
             {% for item in items %}
             {% if item.categoria == categoria %}
             <div class="col-md-4 mb-4" data-aos="fade-up">
-                <div class="card h-100 shadow-lg hover-shadow" data-bs-toggle="modal" data-bs-target="#platoModal{{ item.id }}">
+                <div class="card h-100 shadow-lg hover-shadow" data-bs-toggle="modal"
+                    data-bs-target="#platoModal{{ item.id }}">
                     {% if item.imagen %}
-                    <img src="{{ item.imagen.url }}" class="card-img-top img-fluid" alt="{{ item.nombre }}">
+                    <img src="{{ item.imagen.url }}" class="img-fluid" alt="{{ item.nombre }}">
                     {% endif %}
                     <div class="card-body">
                         <h5 class="card-title">
@@ -55,4 +56,3 @@
 </style>
 
 {% endblock %}
-

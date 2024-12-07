@@ -122,6 +122,12 @@
     box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
 }
 
+.comentarios{
+    align-items: center;
+}
+
+
+
 /* Body y fuente de letra */
 h1, h2, h3, h4 {
     font-family: 'Rockwell', cursive;
@@ -173,20 +179,6 @@ body {
     max-height: 600px;
 }
 
-/* Items Menu */
-.card-img-top {
-    height: 100px;
-    object-fit: cover;
-    border-radius: 8px 8px 0 0;
-}
-
-.foto {
-    height: 100px;
-    width: auto;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-
 /* Index Menu */
 .menu-index {
     position: sticky;
@@ -210,7 +202,7 @@ body {
 .categoria{
     background-size: cover; 
     background-position: center; 
-    padding: 30px 0;
+    padding: 40px 0;
 }
 
 /* Seccion Menu */
@@ -386,50 +378,77 @@ body {
 /* Noticias */
 /* Título de la sección de Noticias */
 #section-title {
-    font-size: 3rem;
+    font-size: 2.5rem;
     font-weight: bold;
-    color: #ffffff;
+    color: #2c3e50;
     text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    margin-bottom: 30px;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
 }
 
-/* Estilo de la tarjeta */
-.card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border: none;
-    transition: transform 0.3s ease-in-out;
+#news-card {
+    background: #3498db; /* Color vibrante de fondo */
+    color: white;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra sutil */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.card:hover {
-    transform: scale(1.02);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+#news-card:hover {
+    transform: translateY(-10px);  /* Desplazamiento hacia arriba al pasar el ratón */
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
 }
 
-/* Fondo gradiente del cuerpo de la tarjeta */
-#post-card-body {
-    padding: 30px;
-    background-color: rgb(119, 119, 119);
-}
-
-/* Título de cada post */
 #post-title {
     font-size: 2rem;
     font-weight: bold;
-    color: white;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    color: #ecf0f1;
+    transition: color 0.3s ease;
 }
 
-/* Línea de separación entre título y texto */
+#post-title:hover {
+    color: #f39c12; /* Cambio de color al pasar el ratón */
+}
+
 #card-divider {
-    border-top: 2px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid #ecf0f1;
+    margin: 20px 0;
 }
 
-/* Texto del post */
 #post-text {
-    font-size: 1.2rem;
-    color: white;
-    text-align: justify;
-    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #ecf0f1;
+    line-height: 1.7;
 }
+
+#post-text:hover {
+    color: #f39c12;  /* Cambio de color al pasar el ratón */
+}
+
+.card-body {
+    padding: 25px;
+}
+
+.card-text {
+    font-size: 1.1rem;
+    color: #ecf0f1;
+    line-height: 1.7;
+}
+
+.card-body {
+    position: relative;
+}
+
+.card-body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #f39c12;  /* Línea decorativa encima del contenido */
+    border-radius: 10px;
+}
+
+
+
 

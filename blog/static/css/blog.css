@@ -179,6 +179,13 @@ body {
     max-height: 600px;
 }
 
+.title{
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
 /* Index Menu */
 .menu-index {
     position: sticky;
@@ -244,7 +251,8 @@ body {
 }
 
 .gallery-img {
-    transform: scale(1.05); /* Suaviza el zoom y la sombra */
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
 }
 
 .gallery-item:hover .gallery-img {
@@ -274,6 +282,10 @@ body {
 /* Contacto */
 .contacto{
     margin-top: 20px;
+}
+
+.foto{
+    width: 50px;
 }
 
 /* Reservas */
@@ -380,14 +392,13 @@ body {
 #section-title {
     font-size: 2.5rem;
     font-weight: bold;
-    color: #2c3e50;
+    color: #ffffff;
     text-transform: uppercase;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.1);
     margin-bottom: 40px;
 }
 
 #news-card {
-    background: #3498db; /* Color vibrante de fondo */
     color: white;
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Sombra sutil */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -401,7 +412,7 @@ body {
 #post-title {
     font-size: 2rem;
     font-weight: bold;
-    color: #ecf0f1;
+    color: #000000;
     transition: color 0.3s ease;
 }
 
@@ -416,12 +427,8 @@ body {
 
 #post-text {
     font-size: 1.1rem;
-    color: #ecf0f1;
+    color: #000000;
     line-height: 1.7;
-}
-
-#post-text:hover {
-    color: #f39c12;  /* Cambio de color al pasar el ratón */
 }
 
 .card-body {

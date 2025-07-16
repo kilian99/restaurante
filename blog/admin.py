@@ -1,7 +1,5 @@
 from django.contrib import admin
-from .models import Post, ImagenCarrusel, MenuItem
-
-admin.site.register(Post)
+from .models import ImagenCarrusel, MenuItem
 
 @admin.register(ImagenCarrusel)
 class ImagenCarruselAdmin(admin.ModelAdmin):

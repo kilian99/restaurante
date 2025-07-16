@@ -1,10 +1,9 @@
 from django.shortcuts import render
-from .models import Post, ImagenCarrusel, MenuItem
+from .models import ImagenCarrusel, MenuItem
 from django.shortcuts import render
 
 
 def index(request):
-    index = Post.objects.all()
     imagenes = ImagenCarrusel.objects.all()
     return render(request, 'blog/index.html', {'index': index, 'imagenes': imagenes})
 
